@@ -1,12 +1,12 @@
 import "./App.css";
 import Sidebar from "./components/Sidebar";
-import Tweets from "./components/Tweets";
+import Timeline from "./components/Timeline";
 
 const App = () => {
   return (
     <div className="container w-full max-w-4xl mx-auto flex">
       <Sidebar />
-      <Tweets />
+      <Timeline />
     </div>
   );
 };

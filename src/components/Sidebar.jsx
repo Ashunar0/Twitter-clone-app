@@ -24,12 +24,12 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar-container h-screen w-1/4 border-solid border-r border-neutral-100">
-      <div className="sidebar-header w-100  flex items-center justify-start ">
+      <div className="sidebar-header w-100 h-16 flex items-center justify-start ">
         <img src={Twitter} alt="twitter" className="logo w-1/5 h-1/3" />
         <h2 className="font-black">Twitter</h2>
       </div>
 
-      <div className="sidebar-content flex flex-col items-center justify-start">
+      <div className="sidebar-content w-full  flex flex-col items-center justify-start">
         {menuItems.map((item, index) => (
           <MenuItem key={index} Icon={item.Icon} content={item.content} />
         ))}
