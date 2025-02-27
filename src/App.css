@@ -2,3 +2,19 @@
   height: 100vh;
   width: 100%;
 }
+
+.sidebar-header {
+  height: 8%;
+}
+
+.sidebar-content {
+  height: 70%;
+}
+
+.sidebar-footer {
+  height: 20%;
+}
+
+.menu-item {
+  height: 8%;
+}
