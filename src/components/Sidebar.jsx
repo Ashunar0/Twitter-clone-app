@@ -33,15 +33,20 @@ const Sidebar = () => {
         {menuItems.map((item, index) => (
           <MenuItem key={index} Icon={item.Icon} content={item.content} />
         ))}
-      </div>
-
-      <div className="sidebar-footer flex flex-col items-center justify-center">
-        <button className="bg-sky-400 text-white w-1/2 rounded-3xl">
+        <button className="bg-sky-400 text-white w-52 outline-none rounded-3xl mt-3">
           Tweet
         </button>
+      </div>
+
+      <div className="sidebar-footer flex items-center justify-start ">
         <div className="sidebar-footer-user flex items-center mt-4">
-          <Avatar />
-          <div className="ml-3 font-black text-lg">Ashunar0</div>
+          <Avatar className="m-3" />
+          <div className="sidebar-footer-user p-3">
+            <div className="sidebar-footer-username font-black text-lg">
+              Ashunar0
+            </div>
+            <div className="sidebar-footer-handle text-gray-500">@ashunar0</div>
+          </div>
         </div>
       </div>
     </div>
