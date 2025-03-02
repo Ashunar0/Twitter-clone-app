@@ -1,9 +1,10 @@
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useRef, useState } from "react";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 
 const TweetInput = ({ onNewTweet }) => {
   const [text, setText] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const textareaRef = useRef(null);
 
   //textarea auto resize
@@ -29,12 +30,14 @@ const TweetInput = ({ onNewTweet }) => {
         userId: "DgKIE3ESxrfEM30pqyeV",
         text: text,
         createdAt: serverTimestamp(), // formatDateではなくserverTimestampを使用
+        imageUrl: imageUrl,
       };
       //console.log(newTweet);
 
       await addDoc(collection(db, "tweets"), newTweet);
       console.log("tweeted"); // 成功メッセージを表示
       setText("");
+      setImageUrl("");
       if (onNewTweet) onNewTweet(); //コールバック
     } catch (error) {
       console.error("Error adding tweet: ", error); // エラーメッセージをユーザーに表示
@@ -55,6 +58,8 @@ const TweetInput = ({ onNewTweet }) => {
         <input
           type="text"
           placeholder="Input image url"
+          value={imageUrl}
+          onInput={(e) => setImageUrl(e.target.value)}
           className="tweet-input-img-url w-full outline-none p-1 pt-0 pl-3"
         />
 

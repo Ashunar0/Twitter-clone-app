@@ -1,4 +1,4 @@
-import Twitter from "../assets/twitter-6.svg";
+import Twitter from "../../assets/twitter-6.svg";
 import MenuItem from "./MenuItem";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
@@ -9,18 +9,32 @@ import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Avatar } from "@mui/material";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const [selectedMenu, setSelectedMenu] = useState("Home");
+  const navigate = useNavigate();
+
   const menuItems = [
-    { Icon: HomeIcon, content: "Home" },
-    { Icon: SearchIcon, content: "Explore" },
-    { Icon: NotificationsNoneIcon, content: "Notifications" },
-    { Icon: MailOutlineIcon, content: "Messages" },
-    { Icon: BookmarkBorderIcon, content: "Bookmarks" },
-    { Icon: FormatListBulletedIcon, content: "Lists" },
-    { Icon: PermIdentityIcon, content: "Profile" },
-    { Icon: MoreHorizIcon, content: "More" },
+    { Icon: HomeIcon, content: "Home", path: "/" },
+    { Icon: SearchIcon, content: "Explore", path: "/explore" },
+    {
+      Icon: NotificationsNoneIcon,
+      content: "Notifications",
+      path: "/notifications",
+    },
+    { Icon: MailOutlineIcon, content: "Messages", path: "/messages" },
+    { Icon: BookmarkBorderIcon, content: "Bookmarks", path: "/bookmarks" },
+    { Icon: FormatListBulletedIcon, content: "Lists", path: "/lists" },
+    { Icon: PermIdentityIcon, content: "Profile", path: "/profile" },
+    { Icon: MoreHorizIcon, content: "More", path: "/more" },
   ];
+
+  const handleMenuItemClick = (content, path) => {
+    setSelectedMenu(content);
+    navigate(path);
+  };
 
   return (
     <div className="sidebar-container h-screen w-1/4 border-solid border-r border-neutral-100">
@@ -31,7 +45,13 @@ const Sidebar = () => {
 
       <div className="sidebar-content w-full  flex flex-col items-center justify-start">
         {menuItems.map((item, index) => (
-          <MenuItem key={index} Icon={item.Icon} content={item.content} />
+          <MenuItem
+            key={index}
+            Icon={item.Icon}
+            content={item.content}
+            isSelected={selectedMenu === item.content}
+            onClick={() => handleMenuItemClick(item.content, item.path)}
+          />
         ))}
         <button className="bg-sky-400 text-white w-52 outline-none rounded-3xl mt-3">
           Tweet

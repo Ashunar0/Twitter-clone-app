@@ -2,7 +2,7 @@ import Tweet from "./Tweet";
 import { Avatar } from "@mui/material";
 import TweetInput from "./TweetInput";
 import { useEffect, useState } from "react";
-import { getAllTweets } from "../utils/utils";
+import { getAllTweets } from "../../utils/utils";
 
 const Timeline = () => {
   const [tweets, setTweets] = useState([]);
@@ -14,6 +14,8 @@ const Timeline = () => {
     userName: "Jhon Doe",
     text: "Hello World!",
     createdAt: "2025.02.28 13:00",
+    imageUrl:
+      "https://images.unsplash.com/photo-1740688053492-9d24f32dc53c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   };
 
   useEffect(() => {
@@ -21,7 +23,7 @@ const Timeline = () => {
     const fetchTweets = async () => {
       const tweetsSnapshot = await getAllTweets();
       setTweets(tweetsSnapshot);
-      console.log(tweetsSnapshot); // 変更後のデータをログに出力
+      //console.log(tweetsSnapshot); // 変更後のデータをログに出力
     };
 
     fetchTweets();

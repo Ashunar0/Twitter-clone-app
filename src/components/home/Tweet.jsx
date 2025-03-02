@@ -38,6 +38,17 @@ const Tweet = ({ tweet }) => {
         {/* content */}
         <div className="tweet-content">
           <div className="tweet-text w-full p-4 pt-1 ">{tweet.text}</div>
+
+          {/* image */}
+          {tweet.imageUrl && (
+            <div className="tweet-image w-full">
+              <img
+                src={tweet.imageUrl}
+                alt="tweet"
+                className="w-4/5 rounded-xl m-2"
+              />
+            </div>
+          )}
         </div>
 
         {/* footer */}

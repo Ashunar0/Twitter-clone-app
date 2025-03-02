@@ -31,6 +31,7 @@ export const getAllTweets = async () => {
       userId: doc.data().userId,
       text: doc.data().text,
       createdAt: formatDate(doc.data().createdAt),
+      imageUrl: doc.data().imageUrl,
     }));
 
     // ユーザーIDを抽出して重複を排除
