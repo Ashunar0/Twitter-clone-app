@@ -50,6 +50,7 @@ export const getAllTweets = async () => {
           id: doc.id,
           userName: userData.userName,
           handleName: userData.handleName,
+          avatarUrl: userData.avatarUrl,
         };
       }
     });

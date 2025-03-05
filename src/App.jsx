@@ -7,6 +7,8 @@ import Explore from "./sections/Explore";
 import Notifications from "./sections/Notifications";
 import Messages from "./sections/Messages";
 import Bookmarks from "./sections/Bookmarks";
+import Signin from "./sections/Signin";
+import Signup from "./sections/Signup";
 
 const App = () => {
   return (
@@ -23,6 +25,9 @@ const App = () => {
           <Route path="/bookmarks" element={<Bookmarks />} />
           <Route path="/lists" element={<Lists />} />
           <Route path="/lists/:listId" element={<Lists />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </Router>
     </div>

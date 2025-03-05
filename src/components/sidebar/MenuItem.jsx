@@ -7,7 +7,9 @@ const MenuItem = ({ Icon, content, isSelected, onClick }) => {
       onClick={onClick}
     >
       <Icon className="ml-3" />
-      <div className="menu-item-text text-l ml-3 font-black">{content}</div>
+      <div className="menu-item-text text-l ml-3 font-black hidden md:block">
+        {content}
+      </div>
     </div>
   );
 };

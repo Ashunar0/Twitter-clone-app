@@ -4,7 +4,7 @@ import TweetInput from "./TweetInput";
 import { useEffect, useState } from "react";
 import { getAllTweets } from "../../utils/utils";
 
-const Timeline = () => {
+const Timeline = ({ user }) => {
   const [tweets, setTweets] = useState([]);
 
   //test用のtweet
@@ -46,10 +46,10 @@ const Timeline = () => {
       <div className="tweet-input-container w-full flex border border-solid border-neutral-100">
         {/* avatar */}
         <div className="tweet-input-avatar p-3 pl-4">
-          <Avatar />
+          <Avatar src={user.avatarUrl} />
         </div>
 
-        <TweetInput onNewTweet={handleNewTweet} />
+        <TweetInput onNewTweet={handleNewTweet} user={user} />
       </div>
 
       {/* timeline */}

@@ -7,12 +7,16 @@ import {
 import { Avatar } from "@mui/material";
 
 const Tweet = ({ tweet }) => {
+  const avatarContent = tweet.avatarUrl ? (
+    <Avatar src={tweet.avatarUrl} />
+  ) : (
+    <Avatar>{tweet.userName.charAt(0)}</Avatar>
+  );
+
   return (
     <div className="tweet w-full flex ">
       {/* avatar */}
-      <div className="tweet-avatar p-3 pl-4">
-        <Avatar />
-      </div>
+      <div className="tweet-avatar p-3 pl-4">{avatarContent}</div>
 
       <div className="tweet-content w-full">
         {/* header */}

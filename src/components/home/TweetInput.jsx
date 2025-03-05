@@ -2,7 +2,7 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useRef, useState } from "react";
 import { db } from "../../firebase";
 
-const TweetInput = ({ onNewTweet }) => {
+const TweetInput = ({ onNewTweet, user }) => {
   const [text, setText] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const textareaRef = useRef(null);
@@ -27,7 +27,7 @@ const TweetInput = ({ onNewTweet }) => {
 
     try {
       const newTweet = {
-        userId: "DgKIE3ESxrfEM30pqyeV",
+        userId: user.email,
         text: text,
         createdAt: serverTimestamp(), // formatDateではなくserverTimestampを使用
         imageUrl: imageUrl,
